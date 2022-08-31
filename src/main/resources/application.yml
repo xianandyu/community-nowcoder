@@ -1,0 +1,95 @@
+server:
+  servlet:
+    context-path: /community
+spring:
+  thymeleaf:
+    cache: false
+  # DataSourceProperties
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+    username: root
+    password: hsp
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 15
+      minimum-idle: 5
+      idle-timeout: 30000
+  #mail配置
+  mail:
+    host: smtp.qq.com
+    username: xian-yu-com@qq.com
+    password: kmgwcycrwojmhdaj
+    port: 465
+    protocol: smtps
+  #RedisProperties
+  redis:
+    database: 11
+    host: localhost
+    port: 6379
+  #kafka
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: test-consumer-group
+      enable-auto-commit: true
+      auto-commit-interval: 3000
+#  elasticsearch
+  elasticsearch:
+    uris: http://localhost:9200
+  #quartz
+  quartz:
+    job-store-type: jdbc
+    scheduler-name: communityScheduler
+    properties:
+      org:
+        quartz:
+          scheduler:
+            instanced: AUTO
+          jobStore:
+            class: org.springframework.scheduling.quartz.LocalDataSourceJobStore
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            isClustered: true
+          threadPool:
+            class: org.quartz.simpl.SimpleThreadPool
+            threadCount: 5
+
+# MybatisProperties
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.xianyu.domain
+  configuration:
+    use-generated-keys: true
+    map-underscore-to-camel-case: true
+
+
+community:
+  path:
+    domain: http://localhost:8080
+    upload: E:/javaBigProject/community-nowcoder/data/img
+
+# wk
+wk:
+  image:
+    command: D:/soft/wkhtmltopdf/bin/wkhtmltoimage
+    storage: D:/soft/wkhtmltopdf/work/data/image
+
+
+#qiniu
+qiniu:
+  key:
+    access: HyhufchZ-6xnxaZzgqzdKo7ZCQROo7e2DNCdT2nh
+    secret: 15hH3t6IJQWq3dB6VLzkXUIM8N4H3ifTM3TlhEtk
+  bucket:
+    header:
+      name: xianyu-header
+      url: http://rh5efhbv5.hn-bkt.clouddn.com
+    share:
+      name: xianyu-share
+      url: http://rh5e6whlk.hn-bkt.clouddn.com
+
+# caffeine
+caffeine:
+  posts:
+    max-size: 15
+    expire-seconds: 180
