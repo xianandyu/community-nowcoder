@@ -9,7 +9,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/community?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
     username: root
-    password: hsp
+    password: xxx
     type: com.zaxxer.hikari.HikariDataSource
     hikari:
       maximum-pool-size: 15
@@ -18,8 +18,8 @@ spring:
   #mail配置
   mail:
     host: smtp.qq.com
-    username: xian-yu-com@qq.com
-    password: kmgwcycrwojmhdaj
+    username: xxx
+    password: xxx
     port: 465
     protocol: smtps
   #RedisProperties
@@ -78,15 +78,15 @@ wk:
 #qiniu
 qiniu:
   key:
-    access: HyhufchZ-6xnxaZzgqzdKo7ZCQROo7e2DNCdT2nh
-    secret: 15hH3t6IJQWq3dB6VLzkXUIM8N4H3ifTM3TlhEtk
+    access: xxx
+    secret: xxx
   bucket:
     header:
-      name: xianyu-header
-      url: http://rh5efhbv5.hn-bkt.clouddn.com
+      name: xxx
+      url: xxx
     share:
-      name: xianyu-share
-      url: http://rh5e6whlk.hn-bkt.clouddn.com
+      name: xxx
+      url: xxx
 
 # caffeine
 caffeine:
